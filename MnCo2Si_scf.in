@@ -1,0 +1,59 @@
+&control
+
+calculation = 'scf'
+restart_mode = 'from_scratch'
+prefix = MnCo2Si
+outdir = './'
+tstress = .true.
+tprnfor = .true.
+pseudo_dir = 'C:\Users\MALFAHDI\Desktop\all_codes\JARVIS\QE_PSP'
+verbosity = 'high'
+/
+
+&system
+
+ibrav = 0
+nat = 4
+ntyp = 3
+ecutwfc = 45
+ecutrho = 250
+occupations = 'smearing'
+degauss = 0.011
+nspin = 2
+lda_plus_u = .true.
+starting_magnetization(1) = 1.0
+starting_magnetization(2) = 1.0
+starting_magnetization(3) = 1.0
+starting_magnetization(4) = 1.0
+Hubbard_U(1) = 3
+Hubbard_U(2) = 3
+Hubbard_U(3) = 3
+/
+
+&electrons
+
+diagonalization = 'david'
+mixing_beta = 0.3
+conv_thr = 1d-6
+/
+ATOMIC_SPECIES
+
+Mn 54.94 mn_pbesol_v1.5.uspp.F.UPF
+Co 58.93 co_pbesol_v1.2.uspp.F.UPF
+Si 28.09 si_pbesol_v1.uspp.F.UPF
+
+ATOMIC_POSITIONS crystal
+
+Mn 0.0 0.0 0.0
+Co 0.25 0.25 0.25
+Co 0.75 0.75 0.75
+Si 0.5 0.5 0.5
+
+CELL_PARAMETERS angstrom
+
+0.0 2.8147219999999997 2.8147219999999997
+2.8147219999999997 0.0 2.8147219999999997
+2.8147219999999997 2.8147219999999997 0.0
+
+K_POINTS automatic
+6 6 6 0 0 0
